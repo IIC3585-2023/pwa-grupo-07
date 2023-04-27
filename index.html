@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <script>
+      window.addEventListener('load', async (e) => {
+        if ('serviceWorker' in navigator) {
+          try {
+            navigator.serviceWorker.register('serviceWorker.js');
+            console.log('SW registered');
+          } catch (error) {
+            console.log('SW failed');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
