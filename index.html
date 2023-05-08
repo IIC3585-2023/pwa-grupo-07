@@ -3,12 +3,165 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>SplittyPie</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="manifest" href="manifest.json" />
+    <!-- materialize icons, css & js -->
+    <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap" rel="stylesheet">
+    <link type="text/css" href="/css/styles.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
   </head>
   <body>
-    <h1>Hello World</h1>
+    <!--
+      <nav class="white z-depth-1">
+        <div class="nav-wrapper container">
+          <ul class="brand-logo center hide-on-med-and-down">
+            <li>
+              <img src="/icons/apple-icon-180.png" alt="logo" width="64">
+            </li>
+            <li>
+              <h3 style="font-family: Oleo Script;" class="cyan-text text-darken-2">SplittyPie</h3>
+            </li>
+          </ul>
+          <a href="#"  data-target="side-menu" class="sidenav-trigger black-text text-darken-1">
+            <i class="material-icons left">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="sass.html">About</a></li>
+            <li><a href="badges.html">Features</a></li>
+            <li><a href="https://github.com/IIC3585-2023/pwa-grupo-07">
+              <i class="material-icons left">github</i>Source</a>
+            </li>
+            <li>
+              <a href="mobile.html"><i class="material-icons left">add</i>New Event</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <ul id="side-menu" class="left sidenav side-menu">
+        <li><a class="subheader">FOODNINJA</a></li>
+        <li><a href="/" class="waves-effect">Home</a></li>
+        <li><a href="/pages/about.html" class="waves-effect">About</a></li>
+        <li><div class="divider"></div></li>
+        <li><a href="/pages/contact.html" class="waves-effect">
+          <i class="material-icons">mail_outline</i>Contact</a>
+        </li>
+      </ul>
+    -->
+    <!-- top nav -->
+    <nav>
+      <div class="nav-wrapper white z-depth-1">
+        <div class="brand-logo">
+          <ul>
+            <li>
+              <img src="/icons/apple-icon-180.png" alt="logo" width="64">
+            </li>
+            <li style="font-family: Oleo Script;" class="cyan-text text-darken-2">
+              SplittyPie
+            </li>
+          </ul>
+        </div>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger black-text text-darken-1"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="sass.html" class="black-text text-darken-1"><b>About</b></a></li>
+          <li><a href="badges.html" class="black-text text-darken-1">Features</a></li>
+          <li><a href="https://github.com/IIC3585-2023/pwa-grupo-07" class="black-text text-darken-1">
+            <i class="material-icons left">open_in_new</i>Source</a>
+          </li>
+          <li>
+            <a href="mobile.html" class="black-text text-darken-1"><i class="material-icons left">add</i>New Event</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <ul class="sidenav left mobile-demo" id="mobile-demo">
+      <li>EVENTS</li>
+      <li>
+        <a href="mobile.html" class="black-text text-darken-1"><i class="material-icons left">add</i>New Event</a>
+      </li>
+      <li><a href="https://github.com/IIC3585-2023/pwa-grupo-07" class="black-text text-darken-1">
+        <i class="material-icons left">open_in_new</i>Source Code</a>
+      </li>
+      <li><a href="https://cowbell-labs.com/" class="black-text text-darken-1">
+        <i class="material-icons left">notifications</i>Cowbell Labs</a>
+      </li>
+    </ul>
+
+    <!-- text -->
+    <div class="container">
+      <div class="col s12">
+        <div class="row">
+          <div class="col s6">
+            <h1 class="left-align grey-text text-darken-3">Easy expense splitting</h1>
+            <p class="left-align grey-text text-darken-3">
+              Create event, add users and their expenses. 
+              Splittypie will calculate who owes who and how much exactly. 
+              It's <b>Free</b> and with <b>No Sign Up</b>.
+            </p>
+            <a class="waves-effect waves-light btn green">create new event</a>
+          </div>
+          <div class="col s6">
+            <img src="/app_iphone-01257beede6ace304f3f63c839669e18.png" alt="example">
+          </div>
+        </div>
+        <div class="col s12">
+          <h2 class="center-align">Find more about Splittypie</h2>
+          <div class="row">
+            <div class="col s4">
+              <div class="center-align">
+                <img src="/works_everywhere.jpg" alt="example">
+                <h4>Works anywhere</h4>
+                <p>Accessible on any device with modern web browser. It has look and feel of mobile device application thanks to resposive design.</p>
+              </div>
+            </div>
+            <div class="col s4">
+              <div class="center-align">
+                <i class="material-icons large">alarm</i>
+                <h4>Fast and realtime</h4>
+                <p>It's really fast and dynamic. What's more, your friends will see all your changes in realtime without refreshing page!</p>
+              </div>
+            </div>
+            <div class="col s4">
+              <div class="center-align">
+                <i class="material-icons large center">signal_wifi_off</i>
+                <h4>Offline Enabled</h4>
+                <p>SplittyPie is an offline-first application. It works when there is no Internet connection and syncs seamlessly where there is.</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s4">
+              <div class="center-align">
+                <i class="material-icons large center">money_off</i>
+                <h4>Free to use</h4>
+                <p>It's completely free of charge. No Sign In, No Registration, No Commitments.</p>
+              </div>
+            </div>
+            <div class="col s4">
+              <div class="center-align">
+                <i class="material-icons large center">share</i>
+                <h4>Easy to share</h4>
+                <p>To share just pass a link to a friend, that's it.</p>
+              </div>
+            </div>
+            <div class="col s4">
+              <div class="center-align">
+                <i class="material-icons large center">lock_open</i>
+                <h4>Open Source</h4>
+                <p>Yes, it's open source. Check out the code on <a href="https://github.com/tsubik/splittypie">github</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="/js/ui.js"></script>
     <script>
       window.addEventListener('load', async (e) => {
         if ('serviceWorker' in navigator) {
