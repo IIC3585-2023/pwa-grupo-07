@@ -1,0 +1,134 @@
+.container {
+  max-width: 800px;
+}
+
+section {
+  padding-top: 1rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.event_navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event_settings {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn-1 {
+  display: flex;
+  align-items: center;
+  background-color: #ffff;
+  color: #333;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.btn-1 h4 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.btn-1 h5 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.selector {
+  border-bottom: 1px solid #ddd;
+}
+
+.selector button,
+.selector button:focus,
+.selector button:active {
+  background-color: #ffff;
+  color: #333;
+  border: none;
+  cursor: pointer;
+}
+
+.selector button h5 {
+  margin: 0;
+  padding: 10px 15px;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.selector button.selected {
+  background-color: #ffff;
+  color: #2196f3;
+  border-bottom: 2px solid #2196f3;
+}
+
+article {
+  padding: 1rem;
+}
+
+article > h4 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.shadow_container {
+  min-height: 4rem;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+}
+
+.shadow_container ul {
+  margin: 0;
+}
+
+.balance_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.balance_person_name h5 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.person_balance {
+  display: flex;
+  align-items: center;
+  border-radius: 0.25em;
+  padding: 0 0.25rem 0 0.25rem;
+  background-color: #4caf50;
+  color: #ffff;
+}
+
+.person_balance h5 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0.5rem;
+}
+
+.settle_balance {
+  display: flex;
+  align-items: center;
+  border-radius: 0.25em;
+  padding: 0 0.25rem 0 0.25rem;
+  background-color: #4caf50;
+  color: #ffff;
+}
+
+.settle_balance h5 {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0.5rem;
+}

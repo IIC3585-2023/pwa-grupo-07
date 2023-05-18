@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SplittyPie</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="manifest.json" />
+    <!-- materialize icons, css & js -->
+    <link type="text/css" href="/css/materialize.min.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link type="text/css" href="/css/styles.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/js/navbar.js"></script>
+  </head>
+  <nav>
+    <div class="nav-wrapper white container">
+      <div class="brand-logo">
+        <ul>
+          <li>
+            <img src="/icons/apple-icon-180.png" alt="logo" width="64" />
+          </li>
+          <li style="font-family: Oleo Script" class="cyan-text text-darken-2">
+            SplittyPie
+          </li>
+        </ul>
+      </div>
+      <ul class="right center">
+        <li>
+          <div class="dropdown">
+            <button class="dropdown-toggle" onclick="toggleDropdown()">
+              VIEWING AS
+              <span class="material-symbols-outlined"> arrow_drop_down </span>
+            </button>
+            <div class="dropdown-menu">
+              <a href="#">Item 1</a>
+              <a href="#">Item 2</a>
+              <a href="#">Item 3</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <a
+        href="#"
+        data-target="mobile-demo"
+        class="sidenav-trigger black-text text-darken-1"
+        ><i class="material-icons">menu</i></a
+      >
+    </div>
+  </nav>
+</html>
