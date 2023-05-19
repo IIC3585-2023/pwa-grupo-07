@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'fs';
+import {events} from '../db.js';
 
 const eventName = document.querySelector('#event_name');
 const participants = document.querySelector('#add-input-list');
@@ -22,22 +22,8 @@ createEvent.addEventListener('click', function(e) {
     totalSpending: 0,
     payments: payments
   };
-  console.log(event);
-  readFile('db.json', 'utf8', function readFileCallback(err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      obj = JSON.parse(data);
-      const length = obj.length.toString();
-      const push = {};
-      push[length] = event;
-      obj.push(push);
-      json = JSON.stringify(obj);
-      writeFile('db.json', json, 'utf8', function(err) {
-        if (err) {
-          console.log(err);
-        }
-      });
-    }
-  });
+  let obj = {};
+  obj[events.length] = event;
+  events.push(obj);
+  console.log(events);
 });
