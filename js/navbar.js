@@ -4,6 +4,9 @@ fetch('navbar.html')
     document.getElementById('navbar').innerHTML = data;
   });
 
+let overviewSection;
+let transactionSection;
+
 let selectedOption = '';
 const options = ['Item 1', 'Item 2', 'Item 3']; // Replace with your array of options
 
@@ -13,6 +16,9 @@ function toggleDropdown() {
 }
 
 window.addEventListener('click', function (event) {
+  overviewSection = document.querySelector('#overview');
+  transactionSection = document.querySelector('#transactions');  
+
   const dropdown = document.getElementsByClassName('dropdown')[0];
   if (!event.target.matches('.dropdown-toggle')) {
     if (dropdown.classList.contains('show')) {
@@ -54,6 +60,15 @@ function selectButton(buttonNumber) {
 
     selectedButton = buttonNumber;
     console.log('Selected button:', selectedButton);
+  }
+  if(selectedButton == 1){
+    overviewSection.style.display = 'block';
+    transactionSection.style.display = 'none';
+  }
+  if(selectedButton == 2){
+    transactionSection.style.display = 'block';
+    overviewSection.style.display = 'none';
+
   }
 }
 

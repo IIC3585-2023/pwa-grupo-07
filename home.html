@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SplittyPie</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="manifest.json" />
+    <!-- materialize icons, css & js -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link type="text/css" href="/css/overview.css" rel="stylesheet" />
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <script type="text/css" src="/css/materialize.min.css"></script>
+    <script type="text/javascript" src="/js/navbar.js"></script>
+    <script type="text/javascript" src="/db.js"></script>
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <section class="container">
+      <div class="event_navbar">
+        <button class="btn-1">
+          <h4>Trip</h4>
+          <span class="material-symbols-outlined"> arrow_drop_down </span>
+        </button>
+        <div class="event_settings">
+        <button class="btn-1">
+          <span class="material-symbols-outlined">
+            share
+          </span>
+          <h5>Share</h5>
+        </button>
+        <button class="btn-1">
+          <span class="material-symbols-outlined">
+            edit_square
+            </span>
+          <h5>Edit</h5>
+      </div>
+      </div>
+      <div class="selector">
+        <button autofocus id="button1" onclick="selectButton(1)" class="selected">
+          <h5>Overview</h5>
+        </button>
+        <button id="button2" onclick="selectButton(2)">
+          <h5>Transactions</h5>
+        </button>
+      </div>
+      <article id="overview">
+        <h4>Individual balance</h4>
+        <div class="shadow_container">
+          <ul>
+            <li class="balance_item">
+                <div class="balance_person_name">
+                  <h5>John Doe</h5>
+                </div>
+                <div class="person_balance">
+                  <h5>10.00 USD</h5>
+                </div>
+            </li>
+            <li class="balance_item">
+              <div class="balance_person_name">
+                <h5>Pedro</h5>
+              </div>
+              <div class="person_balance">
+                <h5>20.00 USD</h5>
+              </div>
+          </li>
+          <li class="balance_item">
+            <div class="balance_person_name">
+              <h5>Juan</h5>
+            </div>
+            <div class="person_balance">
+              <h5>10.00 USD</h5>
+            </div>
+        </li>
+          </ul>
+        </div>
+        <h4>How to settle all debts?</h4>
+        <div class="shadow_container">
+          <ul>
+            <li class="balance_item">
+              <div class="balance_person_name">
+                <h5>John Doe</h5>
+              </div>
+              <div class="settle_balance">
+                <h5 class="settle">SETTLE UP!</h5>
+              </div>
+          </li>
+          </ul>
+        </div>
+      </article>
+      <article hidden id="transactions">
+        <div class="transaction_resume">
+          <div>
+            Showing 2 expenses
+          </div>
+          <div>
+            Total of <span class="bold">40.00 USD</span>
+          </div>
+        </div>
+        <div>
+          <ul>
+            <li class="shadow_container transaction_item">
+              <div class="transaction_date">
+                <div class="month">MAY</div>
+                <div class="day">18</div>
+              </div>
+              <div class="transaction_info">
+                <span class="bold">Fran</span> paid for Comida
+                <div class="participants">
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="15" height="20" viewBox="0 0 25 32"><path d="M25.143 25.089q0 2.143-1.304 3.384t-3.464 1.241H4.768q-2.161 0-3.464-1.241T0 25.089q0-.946.063-1.848t.25-1.946.473-1.938.768-1.741 1.107-1.446 1.527-.955 1.991-.357q.161 0 .75.384t1.33.857 1.929.857 2.384.384 2.384-.384 1.929-.857 1.33-.857.75-.384q1.089 0 1.991.357t1.527.955 1.107 1.446.768 1.741.473 1.938.25 1.946.063 1.848zM19.429 9.143q0 2.839-2.009 4.848T12.572 16t-4.848-2.009-2.009-4.848 2.009-4.848 4.848-2.009 4.848 2.009 2.009 4.848z"></path></svg>
+                  &nbsp Fran, Juan Pablo, Benja
+                </div>
+              </div>
+              <div class="transaction_value">
+                <div>10.00 USD</div>
+              </div>
+            </li>
+            <li class="shadow_container transaction_item">
+              <div class="transaction_date">
+                <div class="month">MAY</div>
+                <div class="day">21</div>
+              </div>
+              <div class="transaction_info">
+                <span class="bold">Benja</span> paid for Transporte
+                <div class="participants">
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="15" height="20" viewBox="0 0 25 32"><path d="M25.143 25.089q0 2.143-1.304 3.384t-3.464 1.241H4.768q-2.161 0-3.464-1.241T0 25.089q0-.946.063-1.848t.25-1.946.473-1.938.768-1.741 1.107-1.446 1.527-.955 1.991-.357q.161 0 .75.384t1.33.857 1.929.857 2.384.384 2.384-.384 1.929-.857 1.33-.857.75-.384q1.089 0 1.991.357t1.527.955 1.107 1.446.768 1.741.473 1.938.25 1.946.063 1.848zM19.429 9.143q0 2.839-2.009 4.848T12.572 16t-4.848-2.009-2.009-4.848 2.009-4.848 4.848-2.009 4.848 2.009 2.009 4.848z"></path></svg>
+                  &nbsp Fran, Juan Pablo, Benja
+                </div>
+              </div>
+              <div class="transaction_value">
+                <div>30.00 USD</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </article>
+      <div  class="add-transaction-button">
+        <a href="/new_transaction.html" title="Add New Transaction" class=" btn-add-transaction" data-ember-action="" data-ember-action-864="864">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="25" height="32" viewBox="0 0 25 32"><path d="M25.143 13.143v3.429q0 .714-.5 1.214t-1.214.5H16v7.429q0 .714-.5 1.214t-1.214.5h-3.429q-.714 0-1.214-.5t-.5-1.214v-7.429H1.714q-.714 0-1.214-.5T0 16.572v-3.429q0-.714.5-1.214t1.214-.5h7.429V4q0-.714.5-1.214t1.214-.5h3.429q.714 0 1.214.5T16 4v7.429h7.429q.714 0 1.214.5t.5 1.214z"></path></svg>
+        </a>
+      </div>
+    </section>
+  </body>
+</html>

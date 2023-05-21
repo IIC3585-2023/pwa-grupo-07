@@ -25,5 +25,6 @@ createEvent.addEventListener('click', function(e) {
   let obj = {};
   obj[events.length] = event;
   events.push(obj);
-  console.log(events);
+  console.log(events); // modificar DB
+  window.location.pathname = '../home.html';
 });

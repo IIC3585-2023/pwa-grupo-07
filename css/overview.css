@@ -132,3 +132,92 @@ article > h4 {
   font-weight: 400;
   margin: 0.5rem;
 }
+
+.transaction_resume {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: gray;
+  margin-bottom: 1rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.transaction_item{
+  text-transform: none;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #565252
+}
+
+.transaction_date{
+  justify-content: center;    
+  text-transform: uppercase;
+}
+
+.transaction_date .day {
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.transaction_date .month {
+  font-size: 10px;
+}
+
+.transaction_info{
+  flex: 1;
+  text-align: left;
+  white-space: normal;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.transaction_value{
+  text-align: right;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.transaction_info .participants {
+  font-size: 85%;
+  align-items: center;
+  display: flex;
+}
+
+.add-transaction-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+.add-transaction-button, .onboarding-transaction-add {
+  align-items: center;
+  display: flex;
+}
+
+.btn-add-transaction{
+  border-radius: 50%;
+  color: #fff;
+  background-color: #2196F3;
+  padding: 0;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  text-align: center;
+}
+
+.btn-add-transaction .icon {
+  fill: #fff;
+  top: 15px;
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  
+}

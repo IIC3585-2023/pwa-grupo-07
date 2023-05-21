@@ -60,3 +60,7 @@ nav {
 .dropdown.show .dropdown-menu {
   display: block;
 }
+
+.card{
+  padding: 15px;
+}
