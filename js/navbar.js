@@ -4,9 +4,6 @@ fetch('navbar.html')
     document.getElementById('navbar').innerHTML = data;
   });
 
-let overviewSection;
-let transactionSection;
-
 let selectedOption = '';
 const options = ['Item 1', 'Item 2', 'Item 3']; // Replace with your array of options
 
@@ -16,8 +13,6 @@ function toggleDropdown() {
 }
 
 window.addEventListener('click', function (event) {
-  overviewSection = document.querySelector('#overview');
-  transactionSection = document.querySelector('#transactions');  
 
   const dropdown = document.getElementsByClassName('dropdown')[0];
   if (!event.target.matches('.dropdown-toggle')) {
@@ -49,6 +44,8 @@ function selectOption(option) {
 let selectedButton = 1;
 
 function selectButton(buttonNumber) {
+  const overviewSection = document.querySelector('#overview');
+  const transactionSection = document.querySelector('#transactions');  
   if (buttonNumber !== selectedButton) {
     // Remove 'selected' class from previously selected button
     document

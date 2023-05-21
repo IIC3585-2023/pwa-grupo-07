@@ -22,7 +22,7 @@
     <script type="text/javascript" src="/js/materialize.min.js"></script>
     <script type="text/css" src="/css/materialize.min.css"></script>
     <script type="text/javascript" src="/js/navbar.js"></script>
-    <script type="text/javascript" src="/db.js"></script>
+    <script type="module" src="/js/home.js"></script>
   </head>
   <body>
     <div id="navbar"></div>
@@ -100,48 +100,8 @@
       </article>
       <article hidden id="transactions">
         <div class="transaction_resume">
-          <div>
-            Showing 2 expenses
-          </div>
-          <div>
-            Total of <span class="bold">40.00 USD</span>
-          </div>
         </div>
-        <div>
-          <ul>
-            <li class="shadow_container transaction_item">
-              <div class="transaction_date">
-                <div class="month">MAY</div>
-                <div class="day">18</div>
-              </div>
-              <div class="transaction_info">
-                <span class="bold">Fran</span> paid for Comida
-                <div class="participants">
-                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="15" height="20" viewBox="0 0 25 32"><path d="M25.143 25.089q0 2.143-1.304 3.384t-3.464 1.241H4.768q-2.161 0-3.464-1.241T0 25.089q0-.946.063-1.848t.25-1.946.473-1.938.768-1.741 1.107-1.446 1.527-.955 1.991-.357q.161 0 .75.384t1.33.857 1.929.857 2.384.384 2.384-.384 1.929-.857 1.33-.857.75-.384q1.089 0 1.991.357t1.527.955 1.107 1.446.768 1.741.473 1.938.25 1.946.063 1.848zM19.429 9.143q0 2.839-2.009 4.848T12.572 16t-4.848-2.009-2.009-4.848 2.009-4.848 4.848-2.009 4.848 2.009 2.009 4.848z"></path></svg>
-                  &nbsp Fran, Juan Pablo, Benja
-                </div>
-              </div>
-              <div class="transaction_value">
-                <div>10.00 USD</div>
-              </div>
-            </li>
-            <li class="shadow_container transaction_item">
-              <div class="transaction_date">
-                <div class="month">MAY</div>
-                <div class="day">21</div>
-              </div>
-              <div class="transaction_info">
-                <span class="bold">Benja</span> paid for Transporte
-                <div class="participants">
-                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="15" height="20" viewBox="0 0 25 32"><path d="M25.143 25.089q0 2.143-1.304 3.384t-3.464 1.241H4.768q-2.161 0-3.464-1.241T0 25.089q0-.946.063-1.848t.25-1.946.473-1.938.768-1.741 1.107-1.446 1.527-.955 1.991-.357q.161 0 .75.384t1.33.857 1.929.857 2.384.384 2.384-.384 1.929-.857 1.33-.857.75-.384q1.089 0 1.991.357t1.527.955 1.107 1.446.768 1.741.473 1.938.25 1.946.063 1.848zM19.429 9.143q0 2.839-2.009 4.848T12.572 16t-4.848-2.009-2.009-4.848 2.009-4.848 4.848-2.009 4.848 2.009 2.009 4.848z"></path></svg>
-                  &nbsp Fran, Juan Pablo, Benja
-                </div>
-              </div>
-              <div class="transaction_value">
-                <div>30.00 USD</div>
-              </div>
-            </li>
-          </ul>
+        <div class="transaction_list">
         </div>
       </article>
       <div  class="add-transaction-button">

@@ -18,7 +18,7 @@ createEvent.addEventListener('click', function(e) {
   const event = {
     name: eventName.value,
     participants: participantsDict,
-    transactions: {},
+    transactions: [],
     totalSpending: 0,
     payments: payments
   };
