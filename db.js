@@ -118,3 +118,34 @@ export function addEventTransaction(eventId, newTransaction) {
   });
 }
 
+export function getAllEvents() {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open('db', 1);
+
+    request.onsuccess = function(event) {
+      const db = event.target.result;
+
+      const transaction = db.transaction('events', 'readonly');
+      const eventsStore = transaction.objectStore('events');
+
+      const getAllRequest = eventsStore.getAll();
+
+      getAllRequest.onsuccess = function(event) {
+        const events = event.target.result;
+        const eventsList = events.map(event => ({ id: event.uuid_event, name: event.name }));
+        resolve(eventsList);
+      };
+
+      transaction.onerror = function(error) {
+        console.error('Error en la transacción:', error);
+        reject(error);
+      };
+    };
+
+    request.onerror = function(error) {
+      console.error('Error al abrir la base de datos:', error);
+      reject(error);
+    };
+  });
+}
+
