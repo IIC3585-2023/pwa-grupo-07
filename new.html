@@ -1,117 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>SplittyPie</title>
-  <!-- materialize icons, css & js -->
-  <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link type="text/css" href="/css/styles.css" rel="stylesheet">
-  <script type="text/javascript" src="/js/materialize.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap" rel="stylesheet">
-</head>
-<body class="white">
-
-  <!-- navbar -->
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper white z-depth-1">
-        <div class="brand-logo">
-          <ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SplittyPie</title>
+    <!-- materialize icons, css & js -->
+    <link type="text/css" href="/css/materialize.min.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link type="text/css" href="/css/styles.css" rel="stylesheet" />
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="white">
+    <!-- navbar -->
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper white z-depth-1">
+          <div class="brand-logo">
+            <ul>
+              <li>
+                <img src="/icons/apple-icon-180.png" alt="logo" width="64" />
+              </li>
+              <li
+                style="font-family: Oleo Script"
+                class="cyan-text text-darken-2"
+              >
+                SplittyPie
+              </li>
+            </ul>
+          </div>
+          <a
+            href="#"
+            data-target="mobile-demo"
+            class="sidenav-trigger black-text text-darken-1"
+            ><i class="material-icons">menu</i></a
+          >
+          <ul class="right hide-on-med-and-down">
             <li>
-              <img src="/icons/apple-icon-180.png" alt="logo" width="64">
+              <a href="sass.html" class="black-text text-darken-1"
+                ><b>About</b></a
+              >
             </li>
-            <li style="font-family: Oleo Script;" class="cyan-text text-darken-2">
-              SplittyPie
+            <li>
+              <a href="badges.html" class="black-text text-darken-1"
+                >Features</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/IIC3585-2023/pwa-grupo-07"
+                class="black-text text-darken-1"
+              >
+                <i class="material-icons left">open_in_new</i>Source</a
+              >
+            </li>
+            <li>
+              <a href="/new.html" class="black-text text-darken-1"
+                ><i class="material-icons left">add</i>New Event</a
+              >
             </li>
           </ul>
         </div>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger black-text text-darken-1"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="sass.html" class="black-text text-darken-1"><b>About</b></a></li>
-          <li><a href="badges.html" class="black-text text-darken-1">Features</a></li>
-          <li><a href="https://github.com/IIC3585-2023/pwa-grupo-07" class="black-text text-darken-1">
-            <i class="material-icons left">open_in_new</i>Source</a>
-          </li>
+      </nav>
+    </div>
+
+    <ul class="sidenav left mobile-demo" id="mobile-demo">
+      <li><p>EVENTS</p></li>
+      <li>
+        <ul class="collection">
           <li>
-            <a href="/new.html" class="black-text text-darken-1"><i class="material-icons left">add</i>New Event</a>
+            <a href="/new.html" class="black-text text-darken-1"
+              ><i class="material-icons left">add</i>New Event</a
+            >
           </li>
         </ul>
-      </div>
-    </nav>
-  </div>
-  
-  <ul class="sidenav left mobile-demo" id="mobile-demo">
-    <li><p>EVENTS</p></li>
-    <li>
-      <ul class="collection">
-        <li>
-          <a href="/new.html" class="black-text text-darken-1"><i class="material-icons left">add</i>New Event</a>
-        </li>
-      </ul>
-    </li>
-    <li><a href="https://github.com/IIC3585-2023/pwa-grupo-07" class="black-text text-darken-1">
-      <i class="material-icons left">open_in_new</i>Source Code</a>
-    </li>
-    <li><a href="https://cowbell-labs.com/" class="black-text text-darken-1">
-      <i class="material-icons left">notifications</i>Cowbell Labs</a>
-    </li>
-  </ul>
+      </li>
+      <li>
+        <a
+          href="https://github.com/IIC3585-2023/pwa-grupo-07"
+          class="black-text text-darken-1"
+        >
+          <i class="material-icons left">open_in_new</i>Source Code</a
+        >
+      </li>
+      <li>
+        <a href="https://cowbell-labs.com/" class="black-text text-darken-1">
+          <i class="material-icons left">notifications</i>Cowbell Labs</a
+        >
+      </li>
+    </ul>
 
-  <!-- content -->
-  <div class="container">
-    <h5 class="left-align">New Event</h5>
-    <div class="card">
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <input placeholder="Example: Trip to Barcelona" id="event_name" type="text" class="validate">
-              <label for="event_name">Event Name</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input disabled placeholder="United States dollar (USD)" id="currency" type="text" class="validate">
-              <label for="currency">Currency</label>
-            </div>
-          </div>
-          <div class="col s12">
-            <p>Participants</p>
-          </div>
-          <div class="col s12">
-            <div id="add-input-list">
-              <div class="row">
-                <input placeholder="Your Name" id="participant1" type="text" class="validate col s9">
-                <div class="btn red col s3 delete-input-btn">
-                  <span>DELETE</span>
-                </div>
-              </div>
-              <div class="row" id="add-input">
-                <input placeholder="Your friend's Name" id="participant1" type="text" class="validate col s9">
-                <div class="btn red col s3 delete-input-btn">
-                  <span>DELETE</span>
-                </div>
+    <!-- content -->
+    <div class="container">
+      <h5 class="left-align">New Event</h5>
+      <div class="card">
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input
+                  placeholder="Example: Trip to Barcelona"
+                  id="event_name"
+                  type="text"
+                  class="validate"
+                />
+                <label for="event_name">Event Name</label>
               </div>
             </div>
-            <div class="btn" id="add-input-btn">
-              <span>Add Participant</span>
+            <div class="row">
+              <div class="input-field col s12">
+                <input
+                  disabled
+                  placeholder="United States dollar (USD)"
+                  id="currency"
+                  type="text"
+                  class="validate"
+                />
+                <label for="currency">Currency</label>
+              </div>
             </div>
-          </div>
-        </form>
+            <div class="col s12">
+              <p>Participants</p>
+            </div>
+            <div class="col s12">
+              <div id="add-input-list">
+                <div class="row">
+                  <input
+                    placeholder="Your Name"
+                    id="participant1"
+                    type="text"
+                    class="validate col s9"
+                  />
+                  <div class="btn red col s3 delete-input-btn">
+                    <span>DELETE</span>
+                  </div>
+                </div>
+                <div class="row" id="add-input">
+                  <input
+                    placeholder="Your friend's Name"
+                    id="participant1"
+                    type="text"
+                    class="validate col s9"
+                  />
+                  <div class="btn red col s3 delete-input-btn">
+                    <span>DELETE</span>
+                  </div>
+                </div>
+              </div>
+              <div class="btn" id="add-input-btn">
+                <span>Add Participant</span>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
+      <p>
+        <a class="waves-effect waves-light btn green" id="create-event"
+          >create</a
+        >
+        or
+        <a class="waves-effect waves-light btn red" href="/index.html"
+          >cancel</a
+        >
+      </p>
     </div>
-    <p>
-      <a class="waves-effect waves-light btn green" id="create-event">create</a>
-      or
-      <a class="waves-effect waves-light btn red" href="/index.html">cancel</a>  
-    </p>
-  </div>
-  <script type="module" src="/js/ui.js"></script>
-  <script type="module" src="/js/createEvent.js"></script>
-</body>
+    <script type="module" src="/js/ui.js"></script>
+    <script type="module" src="/js/createEvent.js"></script>
+  </body>
 </html>
