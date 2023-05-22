@@ -1,3 +1,7 @@
+import {createDb} from '../db.js';
+
+createDb()
+
 document.addEventListener('DOMContentLoaded', function() {
   // nav menu
   const menus = document.querySelectorAll('.mobile-demo');

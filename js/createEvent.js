@@ -1,4 +1,4 @@
-import {events} from '../db.js';
+import {addEvent} from '../db.js';
 
 const eventName = document.querySelector('#event_name');
 const participants = document.querySelector('#add-input-list');
@@ -16,15 +16,26 @@ createEvent.addEventListener('click', function(e) {
     payments[i] = 0;
   };
   const event = {
+    // id: generateEventId(),
+    uuid_event: '11',
     name: eventName.value,
     participants: participantsDict,
     transactions: [],
     totalSpending: 0,
     payments: payments
   };
-  let obj = {};
-  obj[events.length] = event;
-  events.push(obj);
-  console.log(events); // modificar DB
+  addEvent(event)
   window.location.pathname = '../home.html';
 });
+
+
+function generateEventId() {
+  var text = '';
+  var possible =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+  for (var i = 0; i < 20; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
+}
