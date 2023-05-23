@@ -145,17 +145,17 @@ article > h4 {
   font-weight: bold;
 }
 
-.transaction_item{
+.transaction_item {
   text-transform: none;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #565252
+  color: #565252;
 }
 
-.transaction_date{
-  justify-content: center;    
+.transaction_date {
+  justify-content: center;
   text-transform: uppercase;
 }
 
@@ -168,7 +168,7 @@ article > h4 {
   font-size: 10px;
 }
 
-.transaction_info{
+.transaction_info {
   flex: 1;
   text-align: left;
   white-space: normal;
@@ -176,7 +176,7 @@ article > h4 {
   padding-right: 10px;
 }
 
-.transaction_value{
+.transaction_value {
   text-align: right;
   font-weight: bold;
   font-size: 14px;
@@ -194,30 +194,41 @@ article > h4 {
   bottom: 20px;
 }
 
-.add-transaction-button, .onboarding-transaction-add {
+.add-transaction-button,
+.onboarding-transaction-add {
   align-items: center;
   display: flex;
 }
 
-.btn-add-transaction{
+.btn-add-transaction {
   border-radius: 50%;
   color: #fff;
-  background-color: #2196F3;
+  background-color: #2196f3;
   padding: 0;
   border-radius: 50%;
+  border: none;
   width: 56px;
   height: 56px;
   min-width: 56px;
   text-align: center;
 }
 
+.btn-add-transaction:hover {
+  background-color: #1976d2;
+  cursor: pointer;
+}
+
+.btn-add-transaction:focus,
+.btn-add-transaction:active {
+  background-color: #2196f3;
+  cursor: pointer;
+}
+
 .btn-add-transaction .icon {
   fill: #fff;
-  top: 15px;
   position: relative;
   width: 18px;
   height: 18px;
   display: inline-block;
   vertical-align: middle;
-  
 }

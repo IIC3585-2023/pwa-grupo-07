@@ -1,38 +1,72 @@
-import {getAllEvents, getEvent} from '../db.js';
+import { getAllEvents, getEvent } from '../db.js';
 
-document.addEventListener('DOMContentLoaded', async function() {
-    try {
-        // Completar Dropdown con todos los eventos
-        const eventsList = await getAllEvents();
+const btnAddTransaction = document.getElementById('btn-add-transaction');
 
-        const eventDropdownElement = document.querySelector('#event_dropdown');
-        for (let event of eventsList) {
-            eventDropdownElement.innerHTML  += `<option value="${event.id}">${event.name}</option>`;
-        }
-        
-        var select = document.querySelectorAll('select');
-        M.FormSelect.init(select);
+// Add event listener to the button
+btnAddTransaction.addEventListener('click', transactionForm);
 
-        // Completar Html con Data del Evento
-        setHome(eventDropdownElement.value)
+// Define the transactionForm function
+function transactionForm() {
+  const queryParams = new URLSearchParams(window.location.search);
+  const eventId = queryParams.get('event');
+  window.location.href = `/new_transaction.html?event=${eventId}`;
+}
 
-        eventDropdownElement.addEventListener('change', function() {
-            setHome(eventDropdownElement.value)
-        });
-    } 
-    catch (error) {
-        console.error('Error al obtener el evento:', error);
+const getEventId = () => {
+  const queryParams = new URLSearchParams(window.location.search);
+  return queryParams.get('event');
+};
+
+document.addEventListener('DOMContentLoaded', async function () {
+  try {
+    // Completar Dropdown con todos los eventos
+    const eventsList = await getAllEvents();
+
+    const eventDropdownElement = document.querySelector('#event_dropdown');
+    for (let event of eventsList) {
+      const option = document.createElement('option');
+      option.value = event.id;
+      option.text = event.name;
+
+      // Set the default selected option based on the event ID
+      if (event.id === getEventId()) {
+        option.selected = true;
+      }
+
+      eventDropdownElement.appendChild(option);
     }
+
+    var select = document.querySelectorAll('select');
+    M.FormSelect.init(select);
+
+    // Completar Html con Data del Evento
+    setHome(getEventId());
+
+    eventDropdownElement.addEventListener('change', function () {
+      setHome(eventDropdownElement.value);
+
+      // window.location.href = `/home.html?event=${eventDropdownElement.value}`;
+      var url = new URL(window.location.href);
+
+      // Update or add a query parameter
+      url.searchParams.set('event', eventDropdownElement.value);
+
+      // Replace the current URL without reloading the page
+      window.history.replaceState(null, null, url);
+    });
+  } catch (error) {
+    console.error('Error al obtener el evento:', error);
+  }
 });
 
-
-
-async function setHome(selectedEventId){
-    const eventData = await getEvent(selectedEventId);
-    const selectedEvent = eventData[0]
-    let transactionQuantity = selectedEvent.transactions.length
-    const transactionResumeElement = document.querySelector('.transaction_resume');
-    transactionResumeElement.innerHTML = `
+async function setHome(selectedEventId) {
+  const eventData = await getEvent(selectedEventId);
+  const selectedEvent = eventData[0];
+  let transactionQuantity = selectedEvent.transactions.length;
+  const transactionResumeElement = document.querySelector(
+    '.transaction_resume'
+  );
+  transactionResumeElement.innerHTML = `
                                         <div>
                                         Showing ${transactionQuantity} expenses
                                         </div>
@@ -40,31 +74,41 @@ async function setHome(selectedEventId){
                                         Total of <span class="bold">${selectedEvent.totalSpending} USD</span>
                                         </div>
                                         `;
-                            
-    const transactionListElement = document.querySelector('.transaction_list');
-    transactionListElement.innerHTML = '<ul>'
 
-    for ( let transaction of selectedEvent.transactions){
-        const date = new Date(transaction.date);
-        const monthNumber = date.getMonth();
-        const monthNames = [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-            ];
-        const month = monthNames[monthNumber];
-        const day = String(date.getDate()).padStart(2, "0");
+  const transactionListElement = document.querySelector('.transaction_list');
+  transactionListElement.innerHTML = '<ul>';
 
-        const payer = selectedEvent.participants[transaction.payer]
-        const participantIndexes = transaction.participants;
-        const participantNames = participantIndexes.reduce((result, index) => {
-            if (result !== '') {
-            result += ', ';
-            }
-            result += selectedEvent.participants[index];
-            return result;
-        }, '');
-        
-        transactionListElement.innerHTML += `
+  for (let transaction of selectedEvent.transactions) {
+    const date = new Date(transaction.date);
+    const monthNumber = date.getMonth();
+    const monthNames = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    const month = monthNames[monthNumber];
+    const day = String(date.getDate()).padStart(2, '0');
+
+    const payer = selectedEvent.participants[transaction.payer];
+    const participantIndexes = transaction.participants;
+    const participantNames = participantIndexes.reduce((result, index) => {
+      if (result !== '') {
+        result += ', ';
+      }
+      result += selectedEvent.participants[index];
+      return result;
+    }, '');
+
+    transactionListElement.innerHTML += `
                                 <li class="shadow_container transaction_item">
                                     <div class="transaction_date">
                                         <div class="month">${month}</div>
@@ -81,7 +125,8 @@ async function setHome(selectedEventId){
                                         <div>${transaction.ammount} USD</div>
                                     </div>
                                 </li>`;
-    }
-    transactionListElement.innerHTM += '</ul>'
+  }
+  transactionListElement.innerHTM += '</ul>';
 }
 
+async function setOverview(selectedEventId) {}
