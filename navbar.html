@@ -42,13 +42,19 @@
         <li>
           <div class="dropdown">
             <button class="dropdown-toggle" onclick="toggleDropdown()">
-              VIEWING AS
+              VIEWING AS JUAN
               <span class="material-symbols-outlined"> arrow_drop_down </span>
             </button>
             <div class="dropdown-menu">
-              <a href="#">Item 1</a>
-              <a href="#">Item 2</a>
-              <a href="#">Item 3</a>
+              <button class="person_selector" disabled>
+                <p>Switch user to</p>
+              </button>
+              <button class="person_selector" onclick="selectPerson(1)">
+                <p>Fran</p>
+              </button>
+              <button class="person_selector" onclick="selectPerson(1)">
+                <p>Benja</p>
+              </button>
             </div>
           </div>
         </li>

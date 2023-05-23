@@ -108,8 +108,15 @@ article > h4 {
   align-items: center;
   border-radius: 0.25em;
   padding: 0 0.25rem 0 0.25rem;
-  background-color: #4caf50;
   color: #ffff;
+}
+
+.positive {
+  background-color: #4caf50;
+}
+
+.negative {
+  background-color: #f44336;
 }
 
 .person_balance h5 {
@@ -125,12 +132,23 @@ article > h4 {
   padding: 0 0.25rem 0 0.25rem;
   background-color: #4caf50;
   color: #ffff;
+  border: none;
 }
 
 .settle_balance h5 {
   font-size: 14px;
   font-weight: 400;
   margin: 0.5rem;
+}
+
+.settle_balance:hover {
+  background-color: #43a047;
+  cursor: pointer;
+}
+
+.settle_balance:focus,
+.settle_balance:active {
+  background-color: #4caf50;
 }
 
 .transaction_resume {
@@ -145,17 +163,17 @@ article > h4 {
   font-weight: bold;
 }
 
-.transaction_item{
+.transaction_item {
   text-transform: none;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #565252
+  color: #565252;
 }
 
-.transaction_date{
-  justify-content: center;    
+.transaction_date {
+  justify-content: center;
   text-transform: uppercase;
 }
 
@@ -168,7 +186,7 @@ article > h4 {
   font-size: 10px;
 }
 
-.transaction_info{
+.transaction_info {
   flex: 1;
   text-align: left;
   white-space: normal;
@@ -176,7 +194,7 @@ article > h4 {
   padding-right: 10px;
 }
 
-.transaction_value{
+.transaction_value {
   text-align: right;
   font-weight: bold;
   font-size: 14px;
@@ -194,30 +212,41 @@ article > h4 {
   bottom: 20px;
 }
 
-.add-transaction-button, .onboarding-transaction-add {
+.add-transaction-button,
+.onboarding-transaction-add {
   align-items: center;
   display: flex;
 }
 
-.btn-add-transaction{
+.btn-add-transaction {
   border-radius: 50%;
   color: #fff;
-  background-color: #2196F3;
+  background-color: #2196f3;
   padding: 0;
   border-radius: 50%;
+  border: none;
   width: 56px;
   height: 56px;
   min-width: 56px;
   text-align: center;
 }
 
+.btn-add-transaction:hover {
+  background-color: #1976d2;
+  cursor: pointer;
+}
+
+.btn-add-transaction:focus,
+.btn-add-transaction:active {
+  background-color: #2196f3;
+  cursor: pointer;
+}
+
 .btn-add-transaction .icon {
   fill: #fff;
-  top: 15px;
   position: relative;
   width: 18px;
   height: 18px;
   display: inline-block;
   vertical-align: middle;
-  
 }

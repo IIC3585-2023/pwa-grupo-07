@@ -23,6 +23,8 @@
     <script type="text/css" src="/css/materialize.min.css"></script>
     <script type="text/javascript" src="/js/navbar.js"></script>
     <script type="module" src="/js/home.js"></script>
+    <script type="module" src="/js/overview.js.js"></script>
+    <script type="module" src="/js/payments.js"></script>
   </head>
   <body>
     <div id="navbar"></div>
@@ -56,46 +58,9 @@
       </div>
       <article id="overview">
         <h4>Individual balance</h4>
-        <div class="shadow_container">
-          <ul>
-            <li class="balance_item">
-                <div class="balance_person_name">
-                  <h5>John Doe</h5>
-                </div>
-                <div class="person_balance">
-                  <h5>10.00 USD</h5>
-                </div>
-            </li>
-            <li class="balance_item">
-              <div class="balance_person_name">
-                <h5>Pedro</h5>
-              </div>
-              <div class="person_balance">
-                <h5>20.00 USD</h5>
-              </div>
-          </li>
-          <li class="balance_item">
-            <div class="balance_person_name">
-              <h5>Juan</h5>
-            </div>
-            <div class="person_balance">
-              <h5>10.00 USD</h5>
-            </div>
-        </li>
-          </ul>
-        </div>
+        <div id="individual_balance" class="shadow_container"></div>
         <h4>How to settle all debts?</h4>
-        <div class="shadow_container">
-          <ul>
-            <li class="balance_item">
-              <div class="balance_person_name">
-                <h5>John Doe</h5>
-              </div>
-              <div class="settle_balance">
-                <h5 class="settle">SETTLE UP!</h5>
-              </div>
-          </li>
-          </ul>
+        <div id="debt_settle" class="shadow_container">
         </div>
       </article>
       <article hidden id="transactions">
@@ -105,9 +70,9 @@
         </div>
       </article>
       <div  class="add-transaction-button">
-        <a href="/new_transaction.html" title="Add New Transaction" class=" btn-add-transaction" data-ember-action="" data-ember-action-864="864">
+        <button class=" btn-add-transaction" id="btn-add-transaction">
           <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="25" height="32" viewBox="0 0 25 32"><path d="M25.143 13.143v3.429q0 .714-.5 1.214t-1.214.5H16v7.429q0 .714-.5 1.214t-1.214.5h-3.429q-.714 0-1.214-.5t-.5-1.214v-7.429H1.714q-.714 0-1.214-.5T0 16.572v-3.429q0-.714.5-1.214t1.214-.5h7.429V4q0-.714.5-1.214t1.214-.5h3.429q.714 0 1.214.5T16 4v7.429h7.429q.714 0 1.214.5t.5 1.214z"></path></svg>
-        </a>
+        </button>
       </div>
     </section>
     <script type="module" src="/js/ui.js"></script>
