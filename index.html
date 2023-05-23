@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SplittyPie</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="manifest" href="manifest.json" />
-    <!-- materialize icons, css & js -->
-    <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap" rel="stylesheet">
-    <link type="text/css" href="/css/styles.css" rel="stylesheet">
-    <script type="text/javascript" src="/js/materialize.min.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SplittyPie</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="manifest" href="manifest.json" />
+  <!-- materialize icons, css & js -->
+  <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap" rel="stylesheet">
+  <link type="text/css" href="/css/styles.css" rel="stylesheet">
+  <style>
+    /* Add custom styles for responsiveness */
+    @media (max-width: 600px) {
+      /* Example: Adjust the logo size for small screens */
+      .brand-logo img {
+        width: 40px;
+      }
+      .phone img {
+        width: 150px;
+      }
+      .devices img {
+        width: 100px;
+      }
+      .container {
+        width: 100%;
+      }
+      .container h1{
+        font-size: 40px;
+      }
+    }
+  </style>
   </head>
   <body>
     <div class="navbar-fixed">
@@ -74,7 +94,7 @@
             </p>
             <a class="waves-effect waves-light btn green" href="/new.html">create new event</a>
           </div>
-          <div class="col s6">
+          <div class="col s6 phone">
             <img src="/img/app_iphone-01257beede6ace304f3f63c839669e18.png" alt="example">
           </div>
         </div>
@@ -82,7 +102,7 @@
           <h2 class="center-align">Find more about Splittypie</h2>
           <div class="row">
             <div class="col s4">
-              <div class="center-align">
+              <div class="center-align devices">
                 <img src="/img/works_everywhere.jpg" alt="example">
                 <h4>Works anywhere</h4>
                 <p>Accessible on any device with modern web browser. It has look and feel of mobile device application thanks to resposive design.</p>
@@ -128,6 +148,7 @@
           </div>
         </div>
       </div>
-    <script src="/js/ui.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script type="module" src="js/ui.js"></script>
   </body>
 </html>
