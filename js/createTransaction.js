@@ -58,4 +58,5 @@ createTransaction.addEventListener('click', function (e) {
   addEventTransaction(getEventId(), newTransaction);
   console.log(newTransaction);
   window.location.href = `/home.html?event=${getEventId()}`;
+  // sendNotification
 });

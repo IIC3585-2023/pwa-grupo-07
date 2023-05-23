@@ -8,6 +8,12 @@ nav {
   border-right: #ffff;
 }
 
+@media (max-width: 768px) {
+  .brand-logo ul li {
+    display: none;
+  }
+}
+
 .center {
   height: 100%;
   display: flex;

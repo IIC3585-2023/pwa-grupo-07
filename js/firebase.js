@@ -58,7 +58,7 @@ messaging.onMessage((payload) => {
     body: notification.body,
     icon: notification.icon
   };
-  M.toast({html: notification.body, classes: 'rounded'});
+  M.toast({html: notification.title +'</br>'+notification.body, classes: 'rounded'})
   if (Notification.permission === "granted") {
     return new Notification(notification.title, notificationOptions);
   }

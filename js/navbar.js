@@ -22,25 +22,6 @@ window.addEventListener('click', function (event) {
   }
 });
 
-function createButtons() {
-  const dropdownMenu = document.getElementById('dropdownMenu');
-
-  for (let i = 0; i < options.length; i++) {
-    const button = document.createElement('button');
-    button.textContent = options[i];
-    button.addEventListener('click', function () {
-      selectOption(options[i]);
-    });
-    dropdownMenu.appendChild(button);
-  }
-}
-
-function selectOption(option) {
-  selectedOption = option;
-  document.getElementsByClassName('dropdown-toggle').textContent = option;
-  console.log('Selected option:', selectedOption);
-}
-
 let selectedButton = 1;
 
 function selectButton(buttonNumber) {
@@ -69,5 +50,3 @@ function selectButton(buttonNumber) {
   }
 }
 
-createButtons();
-selectOption(options[0]);
