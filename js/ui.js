@@ -17,7 +17,7 @@ const addInputBtn = document.querySelector('#add-input-btn');
 const addInputList = document.querySelector('#add-input-list');
 
 // add input event
-addInputBtn.addEventListener('click', function(e) {
+addInputBtn && addInputBtn.addEventListener('click', function(e) {
   e.preventDefault();
   const div = document.createElement('div');
   div.className = 'row';
@@ -42,7 +42,7 @@ addInputBtn.addEventListener('click', function(e) {
 const deleteInputBtn = document.querySelector('.delete-input-btn');
 
 // delete input event
-addInputList.addEventListener('click', function(e) {
+addInputList && addInputList.addEventListener('click', function(e) {
   const listLength = document.querySelector('#add-input-list').children.length;
   e.preventDefault();
   if (e.target.parentElement.classList.contains('delete-input-btn') && listLength > 2) {
