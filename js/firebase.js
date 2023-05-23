@@ -1,19 +1,15 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging.js";
-  
-
 const firebaseConfig = {
-  apiKey: "AIzaSyDk8dFJAtLs14m9i-DaCW23SuhGlZz1X8I",
-  authDomain: "pwa-g07.firebaseapp.com",
-  projectId: "pwa-g07",
-  storageBucket: "pwa-g07.appspot.com",
-  messagingSenderId: "412146753821",
-  appId: "1:412146753821:web:7b9368976e416db82781f4",
-  measurementId: "G-CSDHV0SX4V"
+apiKey: "AIzaSyDk8dFJAtLs14m9i-DaCW23SuhGlZz1X8I",
+authDomain: "pwa-g07.firebaseapp.com",
+projectId: "pwa-g07",
+storageBucket: "pwa-g07.appspot.com",
+messagingSenderId: "412146753821",
+appId: "1:412146753821:web:7b9368976e416db82781f4",
+measurementId: "G-CSDHV0SX4V"
 };
 
-const app = initializeApp(firebaseConfig);
-const messaging = getMessaging(app);
+const app = firebase.initializeApp(firebaseConfig);
+const messaging = firebase.messaging();
 
 window.addEventListener("load", async (e) => {
     if ("serviceWorker" in navigator) {
@@ -34,7 +30,7 @@ function requestPermission(swRegistration) {
   Notification.requestPermission().then((permission) => {
     if (permission === "granted") {
         console.log("Notification permission granted.");
-        getToken(messaging, {vapidKey: 
+        messaging.getToken({vapidKey: 
             'BNin3mv-8Cj3wA6u9WWSXs9dJmyfy4wJnc4L1_Ex87R7JM92pX7slF3YPRNFdZ903Y60hcjtwCKVs_EUtXRXc4Y',
             serviceWorkerRegistration: swRegistration 
         }).then((currentToken) => {
@@ -55,17 +51,17 @@ function requestPermission(swRegistration) {
   });
 }
 
-onMessage(messaging, (payload) => {
+messaging.onMessage((payload) => {
   console.log("Message received: ", payload);
   const notification = payload.notification;
   const notificationOptions = {
     body: notification.body,
     icon: notification.icon
-  };
+};
 
-//   if (Notification.permission === "granted") {
+  if (Notification.permission === "granted") {
     return new Notification(notification.title, notificationOptions);
-//   }
+  }
 });
 
 // function sendTokenToserver(token){
