@@ -16,7 +16,6 @@ createEvent.addEventListener('click', function (e) {
     payments[i] = 0;
   }
   const event = {
-    // id: generateEventId(),
     uuid_event: generateEventId(),
     name: eventName.value,
     participants: participantsDict,
