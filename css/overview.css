@@ -108,8 +108,15 @@ article > h4 {
   align-items: center;
   border-radius: 0.25em;
   padding: 0 0.25rem 0 0.25rem;
-  background-color: #4caf50;
   color: #ffff;
+}
+
+.positive {
+  background-color: #4caf50;
+}
+
+.negative {
+  background-color: #f44336;
 }
 
 .person_balance h5 {

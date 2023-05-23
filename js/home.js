@@ -1,4 +1,5 @@
 import { getAllEvents, getEvent } from '../db.js';
+import { payments, getBalances } from './payments.js';
 
 const btnAddTransaction = document.getElementById('btn-add-transaction');
 
@@ -40,19 +41,19 @@ document.addEventListener('DOMContentLoaded', async function () {
     M.FormSelect.init(select);
 
     // Completar Html con Data del Evento
-    setHome(getEventId());
+    const eventId = getEventId();
+    setIndividualBalance(eventId);
+    setHome(eventId);
 
     eventDropdownElement.addEventListener('change', function () {
-      setHome(eventDropdownElement.value);
-
-      // window.location.href = `/home.html?event=${eventDropdownElement.value}`;
-      var url = new URL(window.location.href);
-
-      // Update or add a query parameter
-      url.searchParams.set('event', eventDropdownElement.value);
-
       // Replace the current URL without reloading the page
+      var url = new URL(window.location.href);
+      url.searchParams.set('event', eventDropdownElement.value);
       window.history.replaceState(null, null, url);
+
+      const eventId = getEventId();
+      setIndividualBalance(eventId);
+      setHome(eventId);
     });
   } catch (error) {
     console.error('Error al obtener el evento:', error);
@@ -129,4 +130,45 @@ async function setHome(selectedEventId) {
   transactionListElement.innerHTM += '</ul>';
 }
 
-async function setOverview(selectedEventId) {}
+async function setIndividualBalance(selectedEventId) {
+  const eventData = await getEvent(selectedEventId);
+  const balances = getBalances(eventData[0]);
+  console.log(payments(eventData[0]));
+  const eventParticipants = eventData[0].participants;
+  console.log(eventParticipants);
+  const container = document.querySelector('.shadow_container');
+  container.innerHTML = '';
+
+  const ulElement = document.createElement('ul');
+  for (let person in eventParticipants) {
+    const liElement = document.createElement('li');
+    liElement.className = 'balance_item';
+
+    const nameDiv = document.createElement('div');
+    nameDiv.className = 'balance_person_name';
+
+    const nameHeading = document.createElement('h5');
+    nameHeading.textContent = eventParticipants[person];
+
+    nameDiv.appendChild(nameHeading);
+
+    const balanceDiv = document.createElement('div');
+    balanceDiv.className = '';
+
+    const balanceHeading = document.createElement('h5');
+    balanceHeading.textContent = `${balances[person].toFixed(2)} USD`;
+    if (balances[person] >= 0) {
+      balanceDiv.className = 'person_balance positive';
+    } else {
+      balanceDiv.className = 'person_balance negative';
+    }
+
+    balanceDiv.appendChild(balanceHeading);
+
+    liElement.appendChild(nameDiv);
+    liElement.appendChild(balanceDiv);
+
+    ulElement.appendChild(liElement);
+  }
+  container.appendChild(ulElement);
+}

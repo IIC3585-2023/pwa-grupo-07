@@ -1,19 +1,7 @@
-const payments = (event) => {
-  const balances = [];
+export const payments = (event) => {
   const payments = {};
-  for (let participant in event.participants) {
-    balances[participant] = 0;
-  }
-  for (let transaction of event.transactions) {
-    balances[transaction.payer] -= transaction.ammount;
-    for (let participant of transaction.participants) {
-      balances[participant] +=
-        transaction.ammount / transaction.participants.length;
-    }
-  }
-  // Sort balances
-  balances.sort((a, b) => a - b);
-  console.log(balances);
+
+  const balances = getBalances(event);
   // While there are balances to be paid
   let iter = 0;
   while (balancesToBePaid(balances) && iter < 1000) {
@@ -33,13 +21,28 @@ const payments = (event) => {
     balances[i] += payment;
     balances[j] -= payment;
     // Add payment to payments object
-    if (payments[i] === undefined) {
-      payments[i] = {};
+    if (payments[j] === undefined) {
+      payments[j] = {};
     }
-    payments[i][j] = payment;
+    payments[j][i] = payment;
     iter++;
   }
   return payments;
+};
+
+export const getBalances = (event) => {
+  const balances = [];
+  for (let participant in event.participants) {
+    balances[participant] = 0;
+  }
+  for (let transaction of event.transactions) {
+    balances[transaction.payer] += transaction.ammount;
+    for (let participant of transaction.participants) {
+      balances[participant] -=
+        transaction.ammount / transaction.participants.length;
+    }
+  }
+  return balances;
 };
 
 const balancesToBePaid = (balances) => {
