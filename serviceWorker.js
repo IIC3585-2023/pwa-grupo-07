@@ -30,7 +30,26 @@ messaging.onBackgroundMessage(messaging, (payload) => {
 });
 
 
-const staticAssets = ['./', './styles.css'];
+const staticAssets = [
+  './', 
+  './styles.css',
+  './js/createTransaction.js',
+  './js/createEvent.js',
+  './js/home.js',
+  './js/navbar.js',
+  './js/materialize.js',
+  './js/payments.js',
+  './js/ui.js',
+  './css/materialize.min.css',
+  './css/overview.css',
+  './css/styles.css',
+  './img/app_iphone-01257beede6ace304f3f63c839669e18.png',
+  './img/works_everywhere.jpg',
+  './new_transaction.html',
+  './new.html',
+  './home.html',
+  './navbar.html'
+];
 
 self.addEventListener('install', async (event) => {
   const cache = await caches.open('static-meme');
