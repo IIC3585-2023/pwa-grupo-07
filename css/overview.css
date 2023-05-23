@@ -132,12 +132,23 @@ article > h4 {
   padding: 0 0.25rem 0 0.25rem;
   background-color: #4caf50;
   color: #ffff;
+  border: none;
 }
 
 .settle_balance h5 {
   font-size: 14px;
   font-weight: 400;
   margin: 0.5rem;
+}
+
+.settle_balance:hover {
+  background-color: #43a047;
+  cursor: pointer;
+}
+
+.settle_balance:focus,
+.settle_balance:active {
+  background-color: #4caf50;
 }
 
 .transaction_resume {

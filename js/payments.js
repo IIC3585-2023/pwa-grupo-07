@@ -7,12 +7,12 @@ export const payments = (event) => {
   while (balancesToBePaid(balances) && iter < 1000) {
     // Find the biggest negative balance
     let i = 0;
-    while (balances[i] >= 0 && i < balances.length) {
+    while (balances[i] >= -0.1 && i < balances.length) {
       i++;
     }
     // Find the biggest positive balance
     let j = balances.length - 1;
-    while (balances[j] <= 0 && j > 0) {
+    while (balances[j] <= 0.1 && j > 0) {
       j--;
     }
     // Calculate the payment
@@ -48,7 +48,7 @@ export const getBalances = (event) => {
 const balancesToBePaid = (balances) => {
   // If there are balances to be paid return true else return false
   for (let balance of balances) {
-    if (balance !== 0) {
+    if (balance < -0.1 || balance > 0.1) {
       return true;
     }
   }

@@ -1,4 +1,4 @@
-import { getAllEvents, getEvent } from '../db.js';
+import { getAllEvents, getEvent, addEventTransaction } from '../db.js';
 import { payments, getBalances } from './payments.js';
 
 const btnAddTransaction = document.getElementById('btn-add-transaction');
@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Completar Html con Data del Evento
     const eventId = getEventId();
     setIndividualBalance(eventId);
+    getSettleDebts(eventId);
     setHome(eventId);
 
     eventDropdownElement.addEventListener('change', function () {
@@ -53,6 +54,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
       const eventId = getEventId();
       setIndividualBalance(eventId);
+      getSettleDebts(eventId);
       setHome(eventId);
     });
   } catch (error) {
@@ -136,7 +138,7 @@ async function setIndividualBalance(selectedEventId) {
   console.log(payments(eventData[0]));
   const eventParticipants = eventData[0].participants;
   console.log(eventParticipants);
-  const container = document.querySelector('.shadow_container');
+  const container = document.getElementById('individual_balance');
   container.innerHTML = '';
 
   const ulElement = document.createElement('ul');
@@ -157,7 +159,7 @@ async function setIndividualBalance(selectedEventId) {
 
     const balanceHeading = document.createElement('h5');
     balanceHeading.textContent = `${balances[person].toFixed(2)} USD`;
-    if (balances[person] >= 0) {
+    if (balances[person].toFixed(2) >= 0) {
       balanceDiv.className = 'person_balance positive';
     } else {
       balanceDiv.className = 'person_balance negative';
@@ -169,6 +171,61 @@ async function setIndividualBalance(selectedEventId) {
     liElement.appendChild(balanceDiv);
 
     ulElement.appendChild(liElement);
+  }
+  container.appendChild(ulElement);
+}
+
+async function getSettleDebts(selectedEventId) {
+  const eventData = await getEvent(selectedEventId);
+  const paymentsData = payments(eventData[0]);
+  const eventParticipants = eventData[0].participants;
+  const container = document.getElementById('debt_settle');
+  container.innerHTML = '';
+
+  const ulElement = document.createElement('ul');
+  console.log(paymentsData);
+  for (let recieverMoney in paymentsData) {
+    for (let payerMoney in paymentsData[recieverMoney]) {
+      const liElement = document.createElement('li');
+      liElement.className = 'balance_item';
+
+      const nameDiv = document.createElement('div');
+      nameDiv.className = 'balance_person_name';
+
+      const nameHeading = document.createElement('h5');
+      nameHeading.textContent = `${eventParticipants[payerMoney]} owes ${
+        eventParticipants[recieverMoney]
+      } ${paymentsData[recieverMoney][payerMoney].toFixed(2)} USD`;
+
+      nameDiv.appendChild(nameHeading);
+
+      const balanceButton = document.createElement('button');
+      balanceButton.className = 'settle_balance';
+      balanceButton.addEventListener('click', () => {
+        const newTransaction = {
+          name: 'Settle up',
+          ammount: parseFloat(paymentsData[recieverMoney][payerMoney]),
+          payer: parseInt(payerMoney),
+          participants: [parseInt(recieverMoney)],
+          date: new Date().toISOString().slice(0, 10),
+        };
+        addEventTransaction(getEventId(), newTransaction);
+        setHome(getEventId());
+        setIndividualBalance(getEventId());
+        getSettleDebts(getEventId());
+      });
+
+      const balanceHeading = document.createElement('h5');
+      balanceHeading.className = 'settle';
+      balanceHeading.textContent = 'SETTLE UP!';
+
+      balanceButton.appendChild(balanceHeading);
+
+      liElement.appendChild(nameDiv);
+      liElement.appendChild(balanceButton);
+
+      ulElement.appendChild(liElement);
+    }
   }
   container.appendChild(ulElement);
 }
