@@ -6,7 +6,7 @@
 
 
 ### Deploy e instalacion
-- Puede instalarse la página a traves del link (pwa-grupo-07.com)[https://646e35adb27ac310226b88ac--jade-lily-ddb0e5.netlify.app/index.html]
+- Puede instalarse la página a traves del link [pwa-grupo-07.com](https://646e35adb27ac310226b88ac--jade-lily-ddb0e5.netlify.app/index.html)
 
 ### Pagína original
-- (splittypie.com)[https://splittypie.com/]
+- [splittypie.com](https://splittypie.com/)
