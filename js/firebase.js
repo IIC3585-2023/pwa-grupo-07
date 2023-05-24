@@ -11,7 +11,7 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
-const tokenElement = document.querySelector('#token');
+const tokenElement = document.querySelector('#token') ? document.querySelector('#token'): '';
 
 window.addEventListener("load", async (e) => {
     if ("serviceWorker" in navigator) {
@@ -38,7 +38,7 @@ function requestPermission(serviceWorkerRegistration) {
         }).then((currentToken) => {
             if (currentToken) {
                 console.log("Token: ", currentToken);
-                tokenElement.innerHTML = currentToken
+                document.querySelector('#token') ? tokenElement.innerHTML = currentToken : null
                 // sendTokenToserver(currentToken)
             } else {
             console.log('No registration token available. Request permission to generate one.');
