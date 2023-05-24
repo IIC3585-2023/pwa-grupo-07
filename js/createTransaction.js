@@ -19,6 +19,9 @@ function sendNotification(payer, ammount) {
       },
       registration_ids: [
         'dtZkBUPFZKxIVQMlwB8M_D:APA91bFCv92zNw0fr-ogqj_QYvKREy28mkcNw-hu1tL9ZgP3zLwgkSF2p3N0yxji1DYX0mfHRm3px7d5rZa-rPvJYyFrxJkqqbs5nZ14aT50hWQUrNWyra8zJkU9grNNG9k9_L6nZVd7',
+        'f0fHVe6WFxTJDP6ej6kPFy:APA91bG9aJCIfB04g4dMwYvDD54cx3nVMjV0UZIJSpOqRzKcsOlKeEp_ZznMwCrxv8RBl1MTSYFGYrZgHsBNcsiN2h59p-34xMYnvxFiHWyy4kNMjHEm8gy9TIpbnnJ5cCWtLZUGXJ_M',
+        'czJUu2UrU2bi_LW7kIMNME:APA91bFWNtBkdwa9fKuNCbeNoCP_Dih7bFcbPNgBffkpontabMf6m4300ZsesXU3q6ZUxikD_Lpr7yy1jZXl1GQ3b5e_0RuXjewDqMcF9_Mk9yCGRhtb1boCC36OCXb95YQcVtCBXPix',
+        'dc9FD5M6kHiU50MQuiNWet:APA91bHNLN3IpC03sspv-bHP95AuG1cCB-wUammaZBDn4yIx_ZkTuXtEq_PUuye0A-5UeJR76vLNOoi9ISH3DBlU9rUBnvggF71QdkATZtUCTqhA7oycF_mBI62Og9Pj4DzLdoPMiFsK',
       ],
     }),
   });

@@ -3,13 +3,11 @@ import { payments, getBalances } from './payments.js';
 
 const btnAddTransaction = document.getElementById('btn-add-transaction');
 
-
-
-
 document.addEventListener('DOMContentLoaded', async function () {
   try {
     // Completar Dropdown con todos los eventos
     const eventsList = await getAllEvents();
+    console.log('Trying to get all events');
 
     const eventDropdownElement = document.querySelector('#event_dropdown');
     for (let event of eventsList) {
@@ -38,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       setHome(eventId);
     });
 
-        // Add event listener to the button
+    // Add event listener to the button
     btnAddTransaction.addEventListener('click', transactionForm);
 
     // Define the transactionForm function
