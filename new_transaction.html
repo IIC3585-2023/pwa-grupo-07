@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SplittyPie</title>
+  <!-- materialize icons, css & js -->
+  <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" href="/css/styles.css" rel="stylesheet">
+  <script type="text/javascript" src="/js/materialize.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap" rel="stylesheet">
+</head>
+<body class="white">
+
+  <!-- navbar -->
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper white z-depth-1">
+        <div class="brand-logo">
+          <ul>
+            <li>
+              <img src="/icons/apple-icon-180.png" alt="logo" width="64">
+            </li>
+            <li style="font-family: Oleo Script;" class="cyan-text text-darken-2">
+              SplittyPie
+            </li>
+          </ul>
+        </div>      
+      </div>
+    </nav>
+  </div>
+
+
+  <!-- content -->
+  <div class="container">
+    <h5 class="left-align">New Transaction</h5>
+    <div class="card">
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+                <select class="form-control " id="payer">
+                </select>
+                <label for="payer">Who paid?</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input  placeholder="Example: Tickets to museum" id="payment_reason" type="text" class="validate">
+              <label for="payment_reason">For what?</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input  placeholder="USD" id="payment_amount" type="number" class="validate">
+              <label for="payment_amount">How much?</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input  placeholder="USD" id="payment_date" type="date" class="validate">
+              <label for="payment_date">When?</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+                <div id="payment_participants">
+                </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <p>
+      <a class="waves-effect waves-light btn green" id="create-transaction">create</a>
+      or
+      <a class="waves-effect waves-light btn red" href="/home.html">cancel</a>  
+    </p>
+  </div>
+  <script type="module" src="/js/ui.js"></script>
+  <script type="module" src="/js/createTransaction.js"></script>
+</body>
+</html>

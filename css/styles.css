@@ -1,0 +1,102 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+nav {
+  background-color: #ffff;
+  border-left: #ffff;
+  border-right: #ffff;
+}
+
+@media (max-width: 768px) {
+  .brand-logo ul li img {
+    display: none;
+  }
+}
+
+.center {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 800px;
+}
+
+.dropdown {
+  height: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  background-color: #ffff;
+  font-size: large;
+  font-weight: 500;
+  color: #474747;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-toggle:hover {
+  background-color: #dddddd;
+}
+
+.dropdown-toggle:active,
+.dropdown-toggle:focus {
+  background-color: #ffff;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-menu button {
+  color: #333;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu button:hover {
+  background-color: #ddd;
+}
+
+.dropdown.show .dropdown-menu {
+  display: block;
+}
+
+.card {
+  padding: 15px;
+}
+
+.person_selector {
+  border: none;
+  width: 100%;
+  background-color: #ffff;
+}
+
+.person_selector p {
+  margin: 0.5rem;
+  font-size: 13px;
+}
+
+.person_selector:disabled {
+  color: #c0c0c0;
+}
+
+.person_selector:disabled:hover {
+  background-color: #ffff;
+  cursor: text;
+}
