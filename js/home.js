@@ -135,9 +135,7 @@ async function setHome(selectedEventId) {
 async function setIndividualBalance(selectedEventId) {
   const eventData = await getEvent(selectedEventId);
   const balances = getBalances(eventData[0]);
-  console.log(payments(eventData[0]));
   const eventParticipants = eventData[0].participants;
-  console.log(eventParticipants);
   const container = document.getElementById('individual_balance');
   container.innerHTML = '';
 
@@ -183,7 +181,6 @@ async function getSettleDebts(selectedEventId) {
   container.innerHTML = '';
 
   const ulElement = document.createElement('ul');
-  console.log(paymentsData);
   for (let recieverMoney in paymentsData) {
     for (let payerMoney in paymentsData[recieverMoney]) {
       const liElement = document.createElement('li');

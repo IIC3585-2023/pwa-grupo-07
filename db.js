@@ -28,7 +28,6 @@ export function getEvent(eventId) {
 
       query.onsuccess = function (event) {
         const results = event.target.result;
-        console.log('Resultados de la consulta:', results);
         resolve(results);
       };
 
@@ -80,8 +79,6 @@ export function addEventTransaction(eventId, newTransaction) {
       const eventsStore = transaction.objectStore('events');
 
       const getRequest = eventsStore.get(eventId);
-
-      console.log('Estoy haciendo request con el id: ', eventId);
 
       getRequest.onsuccess = function (event) {
         const eventData = event.target.result;
