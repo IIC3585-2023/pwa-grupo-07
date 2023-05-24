@@ -86,6 +86,6 @@ createTransaction.addEventListener('click', async function (e) {
     event.participants[parseInt(newTransaction.payer)] || 'Someone',
     newTransaction.ammount
   );
-  window.location.href = `/home.html?event=${getEventId()}`;
+  window.location.href = `/home.html`;
   // sendNotification
 });

@@ -3,20 +3,8 @@ import { payments, getBalances } from './payments.js';
 
 const btnAddTransaction = document.getElementById('btn-add-transaction');
 
-// Add event listener to the button
-btnAddTransaction.addEventListener('click', transactionForm);
 
-// Define the transactionForm function
-function transactionForm() {
-  const queryParams = new URLSearchParams(window.location.search);
-  const eventId = queryParams.get('event');
-  window.location.href = `/new_transaction.html?event=${eventId}`;
-}
 
-const getEventId = () => {
-  const queryParams = new URLSearchParams(window.location.search);
-  return queryParams.get('event');
-};
 
 document.addEventListener('DOMContentLoaded', async function () {
   try {
@@ -29,11 +17,6 @@ document.addEventListener('DOMContentLoaded', async function () {
       option.value = event.id;
       option.text = event.name;
 
-      // Set the default selected option based on the event ID
-      if (event.id === getEventId()) {
-        option.selected = true;
-      }
-
       eventDropdownElement.appendChild(option);
     }
 
@@ -41,22 +24,28 @@ document.addEventListener('DOMContentLoaded', async function () {
     M.FormSelect.init(select);
 
     // Completar Html con Data del Evento
-    const eventId = getEventId();
+    const eventId = eventDropdownElement.value;
     setIndividualBalance(eventId);
     getSettleDebts(eventId);
     setHome(eventId);
 
     eventDropdownElement.addEventListener('change', function () {
       // Replace the current URL without reloading the page
-      var url = new URL(window.location.href);
-      url.searchParams.set('event', eventDropdownElement.value);
-      window.history.replaceState(null, null, url);
 
-      const eventId = getEventId();
+      const eventId = eventDropdownElement.value;
       setIndividualBalance(eventId);
       getSettleDebts(eventId);
       setHome(eventId);
     });
+
+        // Add event listener to the button
+    btnAddTransaction.addEventListener('click', transactionForm);
+
+    // Define the transactionForm function
+    function transactionForm() {
+      const eventId = eventDropdownElement.value;
+      window.location.href = `/new_transaction.html?event=${eventId}`;
+    }
   } catch (error) {
     console.error('Error al obtener el evento:', error);
   }
@@ -181,6 +170,7 @@ async function getSettleDebts(selectedEventId) {
   container.innerHTML = '';
 
   const ulElement = document.createElement('ul');
+  const eventDropdownElement = document.querySelector('#event_dropdown');
   for (let recieverMoney in paymentsData) {
     for (let payerMoney in paymentsData[recieverMoney]) {
       const liElement = document.createElement('li');
@@ -206,10 +196,10 @@ async function getSettleDebts(selectedEventId) {
           participants: [parseInt(recieverMoney)],
           date: new Date().toISOString().slice(0, 10),
         };
-        addEventTransaction(getEventId(), newTransaction);
-        setHome(getEventId());
-        setIndividualBalance(getEventId());
-        getSettleDebts(getEventId());
+        addEventTransaction(eventDropdownElement.value, newTransaction);
+        setHome(eventDropdownElement.value);
+        setIndividualBalance(eventDropdownElement.value);
+        getSettleDebts(eventDropdownElement.value);
       });
 
       const balanceHeading = document.createElement('h5');
