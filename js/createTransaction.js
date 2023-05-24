@@ -3,6 +3,27 @@ import { getEvent } from '../db.js';
 
 let eventParticipants;
 
+function sendNotification(payer, ammount) {
+  fetch('https://fcm.googleapis.com/fcm/send', {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization:
+        'key=AAAAX_XcYR0:APA91bG1XgFjSREl02ZcjneH10y3iB1sxTG5nc6GNV6tLy0_xWluCAeamZAh7q3Ds89RRRztHSscgqutQuwzw8SNV9abb1l0iuJaXzHBaprWx3jmpnfDHbfHhkIvsO7BxCqB4ffLowdG',
+    },
+    body: JSON.stringify({
+      notification: {
+        title: 'New transaction',
+        body: `${payer} paid ${ammount}`,
+        icon: '',
+      },
+      registration_ids: [
+        'dtZkBUPFZKxIVQMlwB8M_D:APA91bFCv92zNw0fr-ogqj_QYvKREy28mkcNw-hu1tL9ZgP3zLwgkSF2p3N0yxji1DYX0mfHRm3px7d5rZa-rPvJYyFrxJkqqbs5nZ14aT50hWQUrNWyra8zJkU9grNNG9k9_L6nZVd7',
+      ],
+    }),
+  });
+}
+
 const getEventId = () => {
   const queryParams = new URLSearchParams(window.location.search);
   return queryParams.get('event');
@@ -40,7 +61,7 @@ const transactionDate = document.querySelector('#payment_date');
 
 const createTransaction = document.querySelector('#create-transaction');
 
-createTransaction.addEventListener('click', function (e) {
+createTransaction.addEventListener('click', async function (e) {
   e.preventDefault();
   let transactionParticipants = [];
   for (let index in eventParticipants) {
@@ -55,8 +76,16 @@ createTransaction.addEventListener('click', function (e) {
     participants: transactionParticipants,
     date: transactionDate.value,
   };
+
+  const eventFetch = await getEvent(getEventId());
+  const event = eventFetch[0];
+  console.log(event);
   addEventTransaction(getEventId(), newTransaction);
   console.log(newTransaction);
+  sendNotification(
+    event.participants[parseInt(newTransaction.payer)] || 'Someone',
+    newTransaction.ammount
+  );
   window.location.href = `/home.html?event=${getEventId()}`;
   // sendNotification
 });
