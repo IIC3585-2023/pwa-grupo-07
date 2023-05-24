@@ -1,17 +1,20 @@
 importScripts(
-  "https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"
+  'https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js'
 );
 importScripts(
-  "https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging-compat.js"
+  'https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging-compat.js'
 );
+
+const CACHE_NAME = 'version-1';
+
 const firebaseConfig = {
-  apiKey: "AIzaSyDk8dFJAtLs14m9i-DaCW23SuhGlZz1X8I",
-  authDomain: "pwa-g07.firebaseapp.com",
-  projectId: "pwa-g07",
-  storageBucket: "pwa-g07.appspot.com",
-  messagingSenderId: "412146753821",
-  appId: "1:412146753821:web:7b9368976e416db82781f4",
-  measurementId: "G-CSDHV0SX4V"
+  apiKey: 'AIzaSyDk8dFJAtLs14m9i-DaCW23SuhGlZz1X8I',
+  authDomain: 'pwa-g07.firebaseapp.com',
+  projectId: 'pwa-g07',
+  storageBucket: 'pwa-g07.appspot.com',
+  messagingSenderId: '412146753821',
+  appId: '1:412146753821:web:7b9368976e416db82781f4',
+  measurementId: 'G-CSDHV0SX4V',
 };
 
 const app = firebase.initializeApp(firebaseConfig);
@@ -19,19 +22,18 @@ const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage(messaging, (payload) => {
   console.log(payload);
-  const notificationOption={
-      body:payload.data.body,
-      icon:payload.data.icon
+  const notificationOption = {
+    body: payload.data.body,
+    icon: payload.data.icon,
   };
   return self.registration.showNotification(
-      payload.data.title,
-      notificationOption
-      );
+    payload.data.title,
+    notificationOption
+  );
 });
 
-
 const staticAssets = [
-  './', 
+  './',
   './styles.css',
   './js/createTransaction.js',
   './js/createEvent.js',
@@ -48,11 +50,11 @@ const staticAssets = [
   './new_transaction.html',
   './new.html',
   './home.html',
-  './navbar.html'
+  './navbar.html',
 ];
 
 self.addEventListener('install', async (event) => {
-  const cache = await caches.open('static-meme');
+  const cache = await caches.open(CACHE_NAME);
   cache.addAll(staticAssets);
 });
 
@@ -68,17 +70,18 @@ self.addEventListener('fetch', (event) => {
 
 async function cacheData(request) {
   const cachedResponse = await caches.match(request);
+  console.log(cachedResponse);
   return cachedResponse || fetch(request);
 }
 
 async function networkFirst(request) {
-  const cache = await caches.open('dynamic-meme');
+  const cache = await caches.open(CACHE_NAME);
 
   try {
     const response = await fetch(request);
     cache.put(request, response.clone());
     return response;
   } catch (error) {
-    return await cache.match(request);
+    return await cache.match(request, { ignoreVary: true });
   }
 }

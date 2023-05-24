@@ -19,6 +19,7 @@ function sendNotification(payer, ammount) {
       },
       registration_ids: [
         'dtZkBUPFZKxIVQMlwB8M_D:APA91bFCv92zNw0fr-ogqj_QYvKREy28mkcNw-hu1tL9ZgP3zLwgkSF2p3N0yxji1DYX0mfHRm3px7d5rZa-rPvJYyFrxJkqqbs5nZ14aT50hWQUrNWyra8zJkU9grNNG9k9_L6nZVd7',
+        'caCz2meKGX0VU9QLyEkavt:APA91bGnapArdchzoXGcvzN8hDdd_pHKHqbn-maCWFuVzTFEV2_zZt6_Y0gmBycGNoOhPneuRX_cu45SYoTEPKfSplXJ6pD1wMkTwiS2EBbUdfgsk2aYKyRYRkoxtTnbnQ45OXzmXKCL',
       ],
     }),
   });
