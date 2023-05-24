@@ -11,7 +11,6 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
-const tokenElement = document.querySelector('#token') ? document.querySelector('#token'): '';
 
 window.addEventListener("load", async (e) => {
     if ("serviceWorker" in navigator) {
@@ -38,15 +37,11 @@ function requestPermission(serviceWorkerRegistration) {
         }).then((currentToken) => {
             if (currentToken) {
                 console.log("Token: ", currentToken);
-                document.querySelector('#token') ? tokenElement.innerHTML = currentToken : null
-                // sendTokenToserver(currentToken)
             } else {
             console.log('No registration token available. Request permission to generate one.');
-                // setTokenSentToServer(false)
             }
         }).catch((error) => {
             console.log("An error occurred while retrieving token: ", error);
-                // setTokenSentToServer(false)
         });
     } else {
       console.log('Unable to get permission to notify.');
@@ -65,25 +60,5 @@ messaging.onMessage((payload) => {
     html: notification.title + '</br>' + notification.body,
     classes: 'rounded',
   });
-  if (Notification.permission === 'granted') {
-    return new Notification(notification.title, notificationOptions);
-  }
 });
 
-// function sendTokenToserver(token){
-//     if(!isTokenSentToServer){
-//         console.log('Sending token to server....')
-//         setTokenSentToServer(true)
-//     }
-//     else{
-//         console.log('Token already available')
-//     }
-// }
-
-// function isTokenSentToServer(){
-//     return window.localStorage.getItem('sentToServer') == '1'
-// }
-
-// function setTokenSentToServer(sent) {
-//     window.localStorage.setItem('sentToServer', sent ? '1' : '0');
-// }
