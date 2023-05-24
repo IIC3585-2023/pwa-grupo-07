@@ -24,7 +24,7 @@ createEvent.addEventListener('click', function (e) {
     payments: payments,
   };
   addEvent(event);
-  window.location.href = `/home.html?event=${event.uuid_event}`;
+  window.location.href = `/home.html`;
 });
 
 function generateEventId() {
