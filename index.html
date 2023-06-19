@@ -33,6 +33,30 @@
         font-size: 40px;
       }
     }
+
+    .tree{
+      position: fixed;
+      top: 70px;
+      right: 50px;
+      z-index: 9999;
+      background-color: white;
+      border-radius: 5%;
+      padding-right: 20px;
+      box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    .tree:hover{
+      transform: translateY(-5px);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+
+    .web-component{
+      position: fixed;
+      top: 70px;
+      left: 50px;
+      z-index: 9999;
+    }
   </style>
   </head>
   <body>
@@ -82,6 +106,66 @@
     </ul>
 
     <!-- text -->
+    <div class="web-component">
+      <retail-card
+        imgUrl="https://static.nike.com/a/images/w_1920,c_limit/5359f1a2-d415-43ac-80d8-0a285023bd17/image.jpg"
+        brand="Nike"
+        name="Air Jordan 1"
+        price="250"
+        description="Michael Jordan The Air Jordan 1 is a classic basketball shoe that revolutionized the sneaker industry. It features a high-top design, leather upper, and iconic Jordan branding."
+        ratingStyle="star-2"
+        ecofriendly="false"
+        discount="25"
+        currency="$"
+      ></retail-card>
+    </div>
+    <div class="tree">
+      <tree-item>
+        Viajes
+        <tree-item>
+          Destinos populares
+          <tree-item>
+            Playas
+            <tree-item>
+              Caribe
+            </tree-item>
+            <tree-item>
+              Mediterráneo
+            </tree-item>
+          </tree-item>
+          <tree-item>
+            Montañas
+            <tree-item>
+              Alpes
+            </tree-item>
+            <tree-item>
+              Himalaya
+            </tree-item>
+          </tree-item>
+        </tree-item>
+        <tree-item>
+          Tipos de viaje
+          <tree-item>
+            Aventura
+            <tree-item>
+              Excursionismo
+            </tree-item>
+            <tree-item>
+              Escalada
+            </tree-item>
+          </tree-item>
+          <tree-item>
+            Relajación
+            <tree-item>
+              Spa y masajes
+            </tree-item>
+            <tree-item>
+              Yoga y meditación
+            </tree-item>
+          </tree-item>
+        </tree-item>
+      </tree-item>      
+    </div>
     <div class="container">
       <div class="col s12">
         <div class="row">
@@ -154,5 +238,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging-compat.js"></script>
     <script type="module" src="js/firebase.js"></script>
     <script type="module" src="js/ui.js"></script>
+    <script type="module" src="http://127.0.0.1:5173/src/treeItem.js"></script>
+    <script type="module" src="http://127.0.0.1:5173/src/litRetailCard.js"></script>
+    
   </body>
 </html>
